@@ -7,12 +7,9 @@ mongoose.Promise = global.Promise;
 
 // Connecting to the database
 mongoose
-  .connect(
-    config.url,
-    {
-      useNewUrlParser: true
-    }
-  )
+  .connect(config.url, {
+    useNewUrlParser: true,
+  })
   .then(() => {
     console.log('Successfully connected to the database');
   })
@@ -22,8 +19,6 @@ mongoose
   });
 
 mongoose.set('debug', true);
-
-require('./config/passport');
 
 // create express app
 const app = express();
@@ -37,8 +32,7 @@ app.use(bodyParser.json());
 // define a simple route
 app.get('/', (req, res) => {
   res.json({
-    message:
-      'Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes.'
+    message: 'Welcome to my server.',
   });
 });
 
